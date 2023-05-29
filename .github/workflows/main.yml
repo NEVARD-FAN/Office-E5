@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id || github.event_name == 'schedule' # 自己star启动或者schedule触发
     steps:
-    - name: Nevard
-      uses: nevardfan@163.com
+    - name: Setup timezone
+      uses: zcong1993/setup-timezone@master
       with:
         timezone: Asia/Shanghai
     - uses: actions/checkout@v2
@@ -37,8 +37,8 @@ jobs:
         tail run.log   
     - name: Commit log
       env:
-        NAME: ChinoChan
-        EMAIL: kafuuchino520@qq.com
+        NAME: Nevard
+        EMAIL: nevardfan@163.com
       run: |
         git config --global user.name "$NAME"
         git config --global user.email "$EMAIL"
